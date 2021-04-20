@@ -17,16 +17,6 @@ public class RegisterDoctorResource extends ServerResource {
     @Post("json")
     public ApiResult<DoctorRepresentation> add(DoctorRepresentation doctorRepresentationIn) {
 
-        try {
-            ResourceUtils.checkRole(this, Shield.ROLE_DOCTOR);
-
-        } catch (AuthorizationException e) {
-            try { ResourceUtils.checkRole(this, Shield.ROLE_ADMIN );}
-            catch (AuthorizationException d){
-                return new ApiResult<>(null, 500, e.getMessage());
-            }}
-
-
 
 //
 //        if (doctorRepresentationIn == null) return null;
