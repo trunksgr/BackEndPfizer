@@ -1,11 +1,11 @@
 package gr.codehub.pfizer.hibernate.representation;
 
-import gr.codehub.pfizer.hibernate.model.Chief;
+
 import gr.codehub.pfizer.hibernate.model.Consultation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+
 
 @Data
 @NoArgsConstructor

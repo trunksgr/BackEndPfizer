@@ -6,14 +6,10 @@ import gr.codehub.pfizer.hibernate.model.Patient;
 import gr.codehub.pfizer.hibernate.repository.PatientRepository;
 import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
 import gr.codehub.pfizer.hibernate.security.Shield;
-import org.restlet.Server;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
-import org.restlet.resource.Resource;
 import org.restlet.resource.ServerResource;
-
 import javax.persistence.EntityManager;
-import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,6 +70,5 @@ public class PatientListResource extends ServerResource {
         PatientRepresentation p = new PatientRepresentation(patient);
         return new ApiResult<>(p, 200, "ok");
     }
-
 
 }

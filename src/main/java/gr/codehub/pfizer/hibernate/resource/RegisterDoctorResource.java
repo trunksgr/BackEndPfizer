@@ -1,11 +1,10 @@
 package gr.codehub.pfizer.hibernate.resource;
 
-import gr.codehub.pfizer.hibernate.exception.AuthorizationException;
+
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
 import gr.codehub.pfizer.hibernate.model.Doctor;
 import gr.codehub.pfizer.hibernate.repository.DoctorRepository;
 import gr.codehub.pfizer.hibernate.representation.DoctorRepresentation;
-import gr.codehub.pfizer.hibernate.security.Shield;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
 

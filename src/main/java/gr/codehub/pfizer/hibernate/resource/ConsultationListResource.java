@@ -2,21 +2,15 @@ package gr.codehub.pfizer.hibernate.resource;
 
 import gr.codehub.pfizer.hibernate.exception.AuthorizationException;
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
-import gr.codehub.pfizer.hibernate.model.Chief;
 import gr.codehub.pfizer.hibernate.model.Consultation;
 import gr.codehub.pfizer.hibernate.model.Patient;
-import gr.codehub.pfizer.hibernate.repository.ChiefRepository;
 import gr.codehub.pfizer.hibernate.repository.ConsultationRepository;
-import gr.codehub.pfizer.hibernate.representation.ChiefRepresentation;
 import gr.codehub.pfizer.hibernate.representation.ConsultationRepresentation;
-import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
 import gr.codehub.pfizer.hibernate.security.Shield;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
-
 import javax.persistence.EntityManager;
-import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,8 +33,6 @@ public class ConsultationListResource extends ServerResource {
                 return new ApiResult<>(null, 500, e.getMessage());
             }
         }
-
-
 
 
         Date from1 = new SimpleDateFormat("dd-M-yyyy").parse(getQueryValue("from1"));

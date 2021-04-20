@@ -1,18 +1,14 @@
 package gr.codehub.pfizer.hibernate.resource;
 
-import gr.codehub.pfizer.hibernate.exception.AuthorizationException;
+
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
 import gr.codehub.pfizer.hibernate.model.Patient;
 import gr.codehub.pfizer.hibernate.repository.PatientRepository;
 import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
-import gr.codehub.pfizer.hibernate.security.Shield;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
-
 import javax.persistence.EntityManager;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
 
 public class RegisterPatientResource extends ServerResource {
 

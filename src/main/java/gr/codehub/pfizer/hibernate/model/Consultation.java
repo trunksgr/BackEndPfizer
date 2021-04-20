@@ -24,6 +24,4 @@ public class Consultation {
     private Doctor Doctor;
 
 
-
-
 }

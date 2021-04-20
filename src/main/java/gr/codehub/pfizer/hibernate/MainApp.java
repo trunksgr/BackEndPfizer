@@ -12,13 +12,12 @@ import org.restlet.engine.Engine;
 import org.restlet.routing.Router;
 import org.restlet.security.ChallengeAuthenticator;
 import org.restlet.security.Role;
-
 import javax.persistence.EntityManager;
 import java.util.logging.Logger;
 
 public class MainApp extends Application {
 
-    public MainApp(){
+    public MainApp() {
         setName("WebAPIProject");
         setDescription("Full Web API project");
 
@@ -26,9 +25,6 @@ public class MainApp extends Application {
         getRoles().add(new Role(this, Shield.ROLE_DOCTOR));
         getRoles().add(new Role(this, Shield.ROLE_PATIENT));
     }
-
-
-
 
 
     public static final Logger LOGGER = Engine.getLogger(MainApp.class);

@@ -7,7 +7,6 @@ import gr.codehub.pfizer.hibernate.repository.PatientsDataRepository;
 import gr.codehub.pfizer.hibernate.security.Shield;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
-
 import javax.persistence.EntityManager;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

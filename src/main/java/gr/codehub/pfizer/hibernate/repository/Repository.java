@@ -70,5 +70,4 @@ public abstract class Repository<T, K> {
         }
     }
 
-
 }

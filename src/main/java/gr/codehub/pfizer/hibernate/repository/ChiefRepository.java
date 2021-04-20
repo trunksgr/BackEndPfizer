@@ -37,19 +37,20 @@ public class ChiefRepository extends Repository<Chief, Integer> {
     }
 
 
-    public Integer getByUsernamePasswordChief(String username,String pass) {
+    public Integer getByUsernamePasswordChief(String username, String pass) {
         try {
-            Integer list=  entityManager.createQuery("SELECT b.Id FROM Chief b " +
+            Integer list = entityManager.createQuery("SELECT b.Id FROM Chief b " +
                     "WHERE b.Email = :username AND b.Password = :pass", Integer.class)
                     .setParameter("username", username)
                     .setParameter("pass", pass)
                     .getSingleResult();
-            if (list==null){
+            if (list == null) {
                 return null;
-            }
-            else
+            } else
                 return list;
-        }catch (Exception e){return  null;}
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 }

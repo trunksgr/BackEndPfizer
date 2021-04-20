@@ -50,7 +50,7 @@ public class ChiefResource extends ServerResource {
         return chiefRepresentation1;
     }
 
-    //
+
     @Delete("txt")
     public boolean deleteChief() {
         EntityManager em = JpaUtil.getEntityManager();

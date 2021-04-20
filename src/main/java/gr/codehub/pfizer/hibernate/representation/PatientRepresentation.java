@@ -4,6 +4,7 @@ import gr.codehub.pfizer.hibernate.model.Doctor;
 import gr.codehub.pfizer.hibernate.model.Patient;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Data
@@ -58,7 +59,6 @@ public class PatientRepresentation {
         patient.setGender(Gender);
         patient.setActive(Active);
         patient.setRole(role);
-
 
 
         return patient;

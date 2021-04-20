@@ -27,7 +27,7 @@ public class DoctorRepresentation {
             Email = doctor.getEmail();
             Speciality = doctor.getSpeciality();
             Active = doctor.isActive();
-            role =doctor.getRole();
+            role = doctor.getRole();
 
             uri = "http://localhost:9000/v1/doctor/" + doctor.getId();
         }

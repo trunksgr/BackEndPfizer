@@ -19,7 +19,8 @@ public class CustomRouter {
 
         return router;
     }
-    public Router protectedResources(){
+
+    public Router protectedResources() {
         Router router = new Router();
         router.attach("/patient", PatientListResource.class);
         router.attach("/doctor", DoctorListResource.class);
@@ -37,7 +38,7 @@ public class CustomRouter {
         router.attach("/PatientWithNoCoResource", PatientWithNoCoResource.class);//astheneis xoris consltation meta apo 30 meres
 
 
-       //asthenis
+        //asthenis
         router.attach("/PatientDataGlucoseLv", PatientDataGlucoseLvResource.class);//avg glikozi
         router.attach("/PatientDataCarbsIntakeResource", PatientDataCarbsIntakeResource.class);//averege carbs
         router.attach("/consultation", ConsultationListResource.class);//ta kolsatation tou astheni se siggekrimeno ebros xronou
@@ -45,8 +46,8 @@ public class CustomRouter {
 
         //admin
         router.attach("/PatientsDataByDateResource", PatientsDataByDateResource.class);//data astheni se siggekrimeno xrono
-
-
+        router.attach("/consultation", ConsultationListResource.class);//ta kolsatation tou astheni se siggekrimeno ebros xronou
+        router.attach("/DoctorConsultationByDate", DoctorConsultationByDate.class);//ta kolsatation tou giatrou se siggekrimeno ebros xronou
 
 
         return router;

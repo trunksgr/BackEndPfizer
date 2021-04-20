@@ -1,8 +1,8 @@
 package gr.codehub.pfizer.hibernate.repository;
-import gr.codehub.pfizer.hibernate.model.Consultation;
+
+
 import gr.codehub.pfizer.hibernate.model.Doctor;
 import gr.codehub.pfizer.hibernate.model.Patient;
-
 import javax.persistence.EntityManager;
 import java.util.Date;
 import java.util.List;
@@ -53,17 +53,12 @@ public class PatientRepository extends Repository<Patient, Integer> {
     }
 
 
-    public  List<Patient> getPatientByDoctor(Doctor doctor) {
+    public List<Patient> getPatientByDoctor(Doctor doctor) {
         return entityManager.createQuery("SELECT p FROM Patient p WHERE p.Doctor=:doctor ",
                 Patient.class)
                 .setParameter("doctor", doctor)
                 .getResultList();
     }
-
-
-
-
-
 
 
     public List<Patient> getConsultationWithNo(Patient patient, Date from1, Date to) {
@@ -82,6 +77,5 @@ public class PatientRepository extends Repository<Patient, Integer> {
                 Patient.class)
                 .getResultList();
     }
-
 
 }

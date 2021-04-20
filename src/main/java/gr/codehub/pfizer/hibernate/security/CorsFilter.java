@@ -18,7 +18,7 @@ public class CorsFilter {
 
     private Application application;
 
-    public CorsFilter(Application application){
+    public CorsFilter(Application application) {
         this.application = application;
     }
 
@@ -40,7 +40,7 @@ public class CorsFilter {
 
                 Series<Header> requestHeaders = (Series<Header>) request.getAttributes().get(HeaderConstants.ATTRIBUTE_HEADERS);
                 String requestOrigin = requestHeaders.getFirstValue("Origin", false, "*");
-                String rh = requestHeaders.getFirstValue( "Access-Control-Request-Headers", false, "*");
+                String rh = requestHeaders.getFirstValue("Access-Control-Request-Headers", false, "*");
 
                 response.setAccessControlAllowCredentials(true);
                 response.setAccessControlAllowOrigin(requestOrigin);
@@ -56,7 +56,7 @@ public class CorsFilter {
 
                 // Set response headers
 
-                response.getAttributes().put(HeaderConstants.ATTRIBUTE_HEADERS,  responseHeaders);
+                response.getAttributes().put(HeaderConstants.ATTRIBUTE_HEADERS, responseHeaders);
 
                 // Handle HTTP methods
 

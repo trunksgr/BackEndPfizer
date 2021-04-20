@@ -9,7 +9,6 @@ import gr.codehub.pfizer.hibernate.security.Shield;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
-
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +31,6 @@ public class PatientsDataListResource extends ServerResource {
         }
 
 
-
-
         EntityManager em = JpaUtil.getEntityManager();
         PatientsDataRepository patientsDataRepository = new PatientsDataRepository(em);
         List<PatientsData> patientsData = patientsDataRepository.findAll();
@@ -48,8 +45,6 @@ public class PatientsDataListResource extends ServerResource {
 
     @Post("json")
     public ApiResult<PatientsDataRepresentation> add(PatientsDataRepresentation patientsDataRepresentationIn) {
-
-
 
 
         PatientsData patientsData = patientsDataRepresentationIn.createPatientsData();

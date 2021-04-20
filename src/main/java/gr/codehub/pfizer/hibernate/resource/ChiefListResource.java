@@ -2,11 +2,8 @@ package gr.codehub.pfizer.hibernate.resource;
 
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
 import gr.codehub.pfizer.hibernate.model.Chief;
-import gr.codehub.pfizer.hibernate.model.Patient;
 import gr.codehub.pfizer.hibernate.repository.ChiefRepository;
-import gr.codehub.pfizer.hibernate.repository.PatientRepository;
 import gr.codehub.pfizer.hibernate.representation.ChiefRepresentation;
-import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;

@@ -13,7 +13,6 @@ import org.restlet.security.SecretVerifier;
 import javax.persistence.EntityManager;
 
 
-
 public class CustomVerifier extends SecretVerifier {
 
 

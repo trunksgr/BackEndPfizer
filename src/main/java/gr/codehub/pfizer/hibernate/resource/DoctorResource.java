@@ -2,11 +2,8 @@ package gr.codehub.pfizer.hibernate.resource;
 
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
 import gr.codehub.pfizer.hibernate.model.Doctor;
-import gr.codehub.pfizer.hibernate.model.Patient;
 import gr.codehub.pfizer.hibernate.repository.DoctorRepository;
-import gr.codehub.pfizer.hibernate.repository.PatientRepository;
 import gr.codehub.pfizer.hibernate.representation.DoctorRepresentation;
-import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
 import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
 import org.restlet.resource.Put;
@@ -55,7 +52,7 @@ public class DoctorResource extends ServerResource {
         return doctorRepresentation1;
     }
 
-    //
+
     @Delete("txt")
     public boolean deleteDoctor() {
         EntityManager em = JpaUtil.getEntityManager();

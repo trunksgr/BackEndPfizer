@@ -2,15 +2,9 @@ package gr.codehub.pfizer.hibernate.resource;
 
 import gr.codehub.pfizer.hibernate.exception.AuthorizationException;
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
-import gr.codehub.pfizer.hibernate.model.Chief;
 import gr.codehub.pfizer.hibernate.model.Doctor;
-import gr.codehub.pfizer.hibernate.model.Patient;
-import gr.codehub.pfizer.hibernate.repository.ChiefRepository;
 import gr.codehub.pfizer.hibernate.repository.DoctorRepository;
-import gr.codehub.pfizer.hibernate.repository.PatientRepository;
-import gr.codehub.pfizer.hibernate.representation.ChiefRepresentation;
 import gr.codehub.pfizer.hibernate.representation.DoctorRepresentation;
-import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
 import gr.codehub.pfizer.hibernate.security.Shield;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
@@ -55,11 +49,12 @@ public class DoctorListResource extends ServerResource {
             ResourceUtils.checkRole(this, Shield.ROLE_DOCTOR);
 
         } catch (AuthorizationException e) {
-            try { ResourceUtils.checkRole(this, Shield.ROLE_ADMIN );}
-            catch (AuthorizationException d){
+            try {
+                ResourceUtils.checkRole(this, Shield.ROLE_ADMIN);
+            } catch (AuthorizationException d) {
                 return new ApiResult<>(null, 500, e.getMessage());
-            }}
-
+            }
+        }
 
 
 //
