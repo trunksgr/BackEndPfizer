@@ -1,7 +1,4 @@
 package gr.codehub.pfizer.hibernate.repository;
-
-import gr.codehub.pfizer.hibernate.model.Consultation;
-import gr.codehub.pfizer.hibernate.model.Doctor;
 import gr.codehub.pfizer.hibernate.model.Patient;
 
 import javax.persistence.EntityManager;
@@ -28,7 +25,6 @@ public class PatientRepository extends Repository<Patient, Integer> {
 
     public Patient getByUsername(String username) {
         try {
-
             return entityManager.createQuery("SELECT b FROM Patient b " +
                     "WHERE b.Email = :username", Patient.class)
                     .setParameter("username", username)
@@ -65,19 +61,16 @@ public class PatientRepository extends Repository<Patient, Integer> {
                 .getResultList();
     }
 
-//
-//    public List<Patient> getConsultationWithNo(Patient patient, Date from1, Date to) {
-//        return entityManager.createQuery("select p  from Patient" +
-//                        "where not p.patienid in (select distinct patientid" +
-//                        "from consultation where consultation.date" +
-//                        "between dateadd(day, -30, getdate())" +
-//                        "and getdate() )",
-//                Patient.class)
-//                .setParameter("patient", patient)
-//                .setParameter("from1", from1)
-//                .setParameter("to", to)
-//                .getResultList();
-//    }
+
+    public List<Patient> getPatientWithNoCon() {
+        return entityManager.createQuery("select p  from Patient" +
+                        "where not p.Patient_id in (select distinct Patient_id" +
+                        "from Consultation where Consultation.Date" +
+                        "between Date add(day, -30, getDate())" +
+                        "and getDate() )",
+                Patient.class)
+                .getResultList();
+    }
 
 
 }

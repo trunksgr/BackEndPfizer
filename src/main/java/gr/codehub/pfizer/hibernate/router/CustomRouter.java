@@ -1,5 +1,6 @@
 package gr.codehub.pfizer.hibernate.router;
 
+import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
 import gr.codehub.pfizer.hibernate.resource.*;
 import org.restlet.Application;
 import org.restlet.routing.Router;
@@ -14,6 +15,8 @@ public class CustomRouter {
     public Router publicResources() {
         Router router = new Router();
         router.attach("/login", LogInResource.class);
+        router.attach("/registerDoctorResource", RegisterDoctorResource.class);
+        router.attach("/RegisterPatientResource", RegisterPatientResource.class);
 
         return router;
     }
@@ -30,6 +33,8 @@ public class CustomRouter {
         router.attach("/consultation/{id}", ConsultationResource.class);
         router.attach("/chief/{id}", ChiefResource.class);
 
+
+        router.attach("/PatientWithNoCoResource", PatientWithNoCoResource.class);
         router.attach("/DoctorConsultationsResource", DoctorConsultationsResource.class);
         router.attach("/PatientDataGlucoseLv", PatientDataDateListResource.class);
         router.attach("/PatientDataGlucoseLv", PatientDataDateListResource.class);
