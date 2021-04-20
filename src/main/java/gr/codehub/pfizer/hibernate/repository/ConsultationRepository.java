@@ -47,13 +47,13 @@ public class ConsultationRepository extends Repository<Consultation, Integer> {
     }
 
 
-    public List<Consultation> getConsultationByDoctor(Doctor doctor) {
-        return entityManager.createQuery("SELECT c FROM Consultation c WHERE c.Doctor=:doctor ",
-                Consultation.class)
-                .setParameter("doctor", doctor)
-
-                .getResultList();
-    }
+//    public List<Consultation> getConsultationByDoctor(Doctor doctor) {
+//        return entityManager.createQuery("SELECT c FROM Consultation c WHERE c.Doctor=:doctor ",
+//                Consultation.class)
+//                .setParameter("doctor", doctor)
+//
+//                .getResultList();
+//    }
 
 
     public List<Consultation> getConsultationWithNo(Patient patient, Date from1, Date to) {
@@ -65,7 +65,6 @@ public class ConsultationRepository extends Repository<Consultation, Integer> {
                 .setParameter("to", to)
                 .getResultList();
     }
-
 
 
 }

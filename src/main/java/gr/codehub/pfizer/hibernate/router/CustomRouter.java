@@ -1,6 +1,5 @@
 package gr.codehub.pfizer.hibernate.router;
 
-import gr.codehub.pfizer.hibernate.representation.PatientRepresentation;
 import gr.codehub.pfizer.hibernate.resource.*;
 import org.restlet.Application;
 import org.restlet.routing.Router;
@@ -24,7 +23,6 @@ public class CustomRouter {
         Router router = new Router();
         router.attach("/patient", PatientListResource.class);
         router.attach("/doctor", DoctorListResource.class);
-        router.attach("/consultation", ConsultationListResource.class);
         router.attach("/patientsData", PatientsDataListResource.class);
         router.attach("/chief", ChiefListResource.class);
 
@@ -34,14 +32,22 @@ public class CustomRouter {
         router.attach("/chief/{id}", ChiefResource.class);
 
 
-        router.attach("/PatientWithNoCoResource", PatientWithNoCoResource.class);
-        router.attach("/DoctorConsultationsResource", DoctorConsultationsResource.class);
-        router.attach("/PatientDataGlucoseLv", PatientDataDateListResource.class);
-        router.attach("/PatientDataGlucoseLv", PatientDataDateListResource.class);
+        //giatros
+        router.attach("/PatientByDoctorResource", PatientByDoctorResource.class);//o giatros na briskei tous asthenis tou
+        router.attach("/PatientWithNoCoResource", PatientWithNoCoResource.class);//astheneis xoris consltation meta apo 30 meres
 
 
-     //   router.attach("/consultation/{PatientId}/{date1}/{date2}", ConsultationListResource.class);
-       // router.attach("/patientData/{PatientId}/{date1}/{date2}", PatientsDataListResource.class);
+       //asthenis
+        router.attach("/PatientDataGlucoseLv", PatientDataGlucoseLvResource.class);//avg glikozi
+        router.attach("/PatientDataCarbsIntakeResource", PatientDataCarbsIntakeResource.class);//averege carbs
+        router.attach("/consultation", ConsultationListResource.class);//ta kolsatation tou astheni se siggekrimeno ebros xronou
+
+
+        //admin
+        router.attach("/PatientsDataByDateResource", PatientsDataByDateResource.class);//data astheni se siggekrimeno xrono
+
+
+
 
         return router;
     }

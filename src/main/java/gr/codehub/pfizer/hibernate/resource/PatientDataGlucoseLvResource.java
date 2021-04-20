@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class PatientDataDateListResource extends ServerResource {
+public class PatientDataGlucoseLvResource extends ServerResource {
 
     @Get("json")
     public ApiResult<List<Double>> getPatientsData() throws ParseException {
@@ -41,7 +41,6 @@ public class PatientDataDateListResource extends ServerResource {
         PatientsDataRepository patientsDataRepository = new PatientsDataRepository(em);
         Patient patient = new Patient();
         patient.setId(patient_Id);
-
 
         List<Double> patientsData = patientsDataRepository.getPatientsDataGlucoseLv(patient, from1a, toa);
         em.close();

@@ -38,17 +38,19 @@ public class PatientWithNoCoResource extends ServerResource {
             }
         }
 
-        EntityManager em = JpaUtil.getEntityManager();
-        PatientRepository patientRepository = new PatientRepository(em);
 
 
-        List<Patient> patient = patientRepository.getPatientWithNoCon();
+    EntityManager em = JpaUtil.getEntityManager();
+    PatientRepository  patientRepository = new  PatientRepository(em);
+
+
+    List< Patient>  patient = patientRepository. getPatientWithNoCon();
         em.close();
 
-        List<PatientRepresentation> patientRepresentationList =
-                patient.stream()
-                        .map(p -> new PatientRepresentation(p))
-                        .collect(toList());
-        return new ApiResult<>(patientRepresentationList, 200, "ok");
-    }
+    List< PatientRepresentation>  patientRepresentationList =
+            patient.stream()
+                    .map(p -> new  PatientRepresentation(p))
+                    .collect(toList());
+        return new ApiResult<>( patientRepresentationList, 200, "ok");
+}
 }
