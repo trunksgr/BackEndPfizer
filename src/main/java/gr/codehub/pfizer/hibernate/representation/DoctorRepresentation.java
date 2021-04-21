@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 public class DoctorRepresentation {
 
     private int Id;
-
     private String FullName;
     private String Password;
     private String Email;

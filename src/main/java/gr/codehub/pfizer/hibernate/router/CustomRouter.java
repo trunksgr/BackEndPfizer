@@ -39,9 +39,9 @@ public class CustomRouter {
 
 
         //asthenis
-        router.attach("/PatientDataGlucoseLv", PatientDataGlucoseLvResource.class);//avg glikozi
-        router.attach("/PatientDataCarbsIntakeResource", PatientDataCarbsIntakeResource.class);//averege carbs
+        router.attach("/PatientDataCarbsIntake", PatientDataCarbsIntakeResource.class);//averege carbs
         router.attach("/consultation", ConsultationListResource.class);//ta kolsatation tou astheni se siggekrimeno ebros xronou
+        router.attach("/PatientDataGlucoseLv", PatientDataGlucoseLvResource.class);//avg glikozi
 
 
         //admin

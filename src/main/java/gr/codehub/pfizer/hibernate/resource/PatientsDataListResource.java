@@ -2,7 +2,9 @@ package gr.codehub.pfizer.hibernate.resource;
 
 import gr.codehub.pfizer.hibernate.exception.AuthorizationException;
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
+import gr.codehub.pfizer.hibernate.model.Patient;
 import gr.codehub.pfizer.hibernate.model.PatientsData;
+import gr.codehub.pfizer.hibernate.repository.PatientRepository;
 import gr.codehub.pfizer.hibernate.repository.PatientsDataRepository;
 import gr.codehub.pfizer.hibernate.representation.PatientsDataRepresentation;
 import gr.codehub.pfizer.hibernate.security.Shield;
@@ -50,6 +52,11 @@ public class PatientsDataListResource extends ServerResource {
         PatientsData patientsData = patientsDataRepresentationIn.createPatientsData();
         EntityManager em = JpaUtil.getEntityManager();
         PatientsDataRepository patientsDataRepository = new PatientsDataRepository(em);
+
+
+        PatientRepository patientRepository = new PatientRepository(em);
+        Patient patient = patientRepository.read(patientsDataRepresentationIn.getPatientId());
+        patientsData.setPatient(patient);
 
         patientsDataRepository.save(patientsData);
         PatientsDataRepresentation pd = new PatientsDataRepresentation(patientsData);

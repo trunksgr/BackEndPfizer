@@ -41,12 +41,14 @@ public class PatientDataGlucoseLvResource extends ServerResource {
         Patient patient = new Patient();
         patient.setId(patient_Id);
 
+
         List<Double> patientsData = patientsDataRepository.getPatientsDataGlucoseLv(patient, from1a, toa);
         em.close();
 
 
         return new ApiResult<>(patientsData, 200, "ok");
     }
+
 
 
 }

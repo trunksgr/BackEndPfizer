@@ -61,21 +61,23 @@ public class PatientRepository extends Repository<Patient, Integer> {
     }
 
 
-    public List<Patient> getConsultationWithNo(Patient patient, Date from1, Date to) {
-        return entityManager.createQuery("SELECT c FROM Patient c WHERE " +
-                        "AND c.Date>=:from1 AND c.Date<=:to",
-                Patient.class)
-                .setParameter("patient", patient)
-                .setParameter("from1", from1)
-                .setParameter("to", to)
-                .getResultList();
-    }
+
 
 
     public List<Patient> getPatientWithNoCon() {
-        return entityManager.createQuery("Select Patient.* FROM Patient WHERE not Patient.Id in (SELECT DISTINCT Patient.Id FROM Consultation WHERE Consultation.Date BETWEEN Consultation.Date add(day, -30, getdate()) AND getdate())",
+        return entityManager.createNativeQuery("select Patient.* from Patient " +
+                        "where not Patient.Id in (select distinct Consultation.Patient_Id " +
+                        "from Consultation where Consultation.Date " +
+                        "between dateadd(day, -30, getdate()) " +
+                        "and getdate() )",
                 Patient.class)
                 .getResultList();
     }
 
-}
+
+    }
+
+
+
+
+

@@ -2,7 +2,9 @@ package gr.codehub.pfizer.hibernate.resource;
 
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
 import gr.codehub.pfizer.hibernate.model.Consultation;
+import gr.codehub.pfizer.hibernate.model.Patient;
 import gr.codehub.pfizer.hibernate.repository.ConsultationRepository;
+import gr.codehub.pfizer.hibernate.repository.PatientRepository;
 import gr.codehub.pfizer.hibernate.representation.ConsultationRepresentation;
 import org.restlet.resource.Delete;
 import org.restlet.resource.Get;

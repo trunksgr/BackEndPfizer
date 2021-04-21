@@ -3,8 +3,11 @@ package gr.codehub.pfizer.hibernate.resource;
 import gr.codehub.pfizer.hibernate.exception.AuthorizationException;
 import gr.codehub.pfizer.hibernate.jpautil.JpaUtil;
 import gr.codehub.pfizer.hibernate.model.Consultation;
+import gr.codehub.pfizer.hibernate.model.Doctor;
 import gr.codehub.pfizer.hibernate.model.Patient;
 import gr.codehub.pfizer.hibernate.repository.ConsultationRepository;
+import gr.codehub.pfizer.hibernate.repository.DoctorRepository;
+import gr.codehub.pfizer.hibernate.repository.PatientRepository;
 import gr.codehub.pfizer.hibernate.representation.ConsultationRepresentation;
 import gr.codehub.pfizer.hibernate.security.Shield;
 import org.restlet.resource.Get;
@@ -75,6 +78,18 @@ public class ConsultationListResource extends ServerResource {
         Consultation consultation = consultationRepresentationIn.createConsultation();
         EntityManager em = JpaUtil.getEntityManager();
         ConsultationRepository consultationRepository = new ConsultationRepository(em);
+
+
+
+
+        PatientRepository patientRepository = new PatientRepository(em);
+        Patient patient = patientRepository.read(consultationRepresentationIn.getPatientId());
+        consultation.setPatient(patient);
+
+
+        DoctorRepository doctorRepository = new DoctorRepository(em);
+        Doctor doctor = doctorRepository.read(consultationRepresentationIn.getDoctorId());
+        consultation.setDoctor(doctor);
 
         consultationRepository.save(consultation);
         ConsultationRepresentation cn = new ConsultationRepresentation(consultation);

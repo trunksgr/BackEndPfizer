@@ -16,7 +16,7 @@ import java.util.List;
 public class PatientDataCarbsIntakeResource extends ServerResource {
 
     @Get("json")
-    public ApiResult<List<Double>> getPatientsData() throws ParseException {
+    public ApiResult<List<Double>> getPatientDataCarbsIntakeResource() throws ParseException {
 
         try {
             ResourceUtils.checkRole(this, Shield.ROLE_DOCTOR);

@@ -28,7 +28,7 @@ public class PatientsDataRepository extends Repository<PatientsData, Integer> {
 
 
     public List<PatientsData> getPatientsDataByDate(Patient patient, Date from1, Date to) {
-        return entityManager.createQuery("SELECT c FROM PatientsData c WHERE c.Patient=:patient " +
+        return entityManager.createQuery("SELECT c FROM Patient c WHERE c.Patient=:patient " +
                         "AND c.Date>=:from1 AND c.Date<=:to",
                 PatientsData.class)
                 .setParameter("patient", patient)
@@ -58,4 +58,19 @@ public class PatientsDataRepository extends Repository<PatientsData, Integer> {
                 .setParameter("toa", toa)
                 .getResultList();
     }
+
+//    UPDATE PatientsData
+//    SET Patient_Id=2
+//    WHERE Id=1
+//
+//    public Patient setPatient_Id(PatientsData patientsData,id) {
+//        return entityManager.createQuery("UPDATE c FROM PatientsData c SET c.Patient_Id=:c.Patient " +
+//                        "WHERE c.Patient=:patient",
+//                Patient.class)
+//                .setParameter("patient", patient)
+//                .setParameter("id", id)
+//                .getSingleResult();
+//    }
+
+
 }
