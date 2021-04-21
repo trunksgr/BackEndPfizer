@@ -1,6 +1,7 @@
 package gr.codehub.pfizer.hibernate.repository;
 
 
+import gr.codehub.pfizer.hibernate.model.Consultation;
 import gr.codehub.pfizer.hibernate.model.Doctor;
 import gr.codehub.pfizer.hibernate.model.Patient;
 import javax.persistence.EntityManager;
@@ -53,6 +54,8 @@ public class PatientRepository extends Repository<Patient, Integer> {
     }
 
 
+
+
     public List<Patient> getPatientByDoctor(Doctor doctor) {
         return entityManager.createQuery("SELECT p FROM Patient p WHERE p.Doctor=:doctor ",
                 Patient.class)
@@ -61,19 +64,34 @@ public class PatientRepository extends Repository<Patient, Integer> {
     }
 
 
-
-
+//    AND not Patient.Id in (select distinct PatientsData.Patient_Id "+
+//            "from PatientsData where PatientsData.Date"+
+//            "between dateadd(day, -30, getdate())
+//    Consultation.Doctor_Id IS NOT  NULL
 
     public List<Patient> getPatientWithNoCon() {
         return entityManager.createNativeQuery("select Patient.* from Patient " +
                         "where not Patient.Id in (select distinct Consultation.Patient_Id " +
                         "from Consultation where Consultation.Date " +
                         "between dateadd(day, -30, getdate()) " +
-                        "and getdate() )",
+                        "and getdate())",
                 Patient.class)
                 .getResultList();
     }
 
+
+
+    public List<Patient> getInactivePatient(Date from1, Date to) {
+        return entityManager.createNativeQuery("select Patient.* from Patient " +
+                        "where not Patient.Id in (select distinct PatientsData.Patient_Id " +
+                        "from PatientsData where PatientsData.Date " +
+                        "between :from1 " +
+                        "and :to )",
+                Patient.class)
+                .setParameter("from1", from1)
+                .setParameter("to", to)
+                .getResultList();
+    }
 
     }
 

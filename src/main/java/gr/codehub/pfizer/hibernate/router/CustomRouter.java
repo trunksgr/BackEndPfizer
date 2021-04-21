@@ -39,16 +39,17 @@ public class CustomRouter {
 
 
         //asthenis
+        router.attach("/PatientDataGlucoseLv", PatientDataGlucoseLvResource.class);//avg glikozi
         router.attach("/PatientDataCarbsIntake", PatientDataCarbsIntakeResource.class);//averege carbs
         router.attach("/consultation", ConsultationListResource.class);//ta kolsatation tou astheni se siggekrimeno ebros xronou
-        router.attach("/PatientDataGlucoseLv", PatientDataGlucoseLvResource.class);//avg glikozi
 
 
         //admin
         router.attach("/PatientsDataByDateResource", PatientsDataByDateResource.class);//data astheni se siggekrimeno xrono
         router.attach("/consultation", ConsultationListResource.class);//ta kolsatation tou astheni se siggekrimeno ebros xronou
-        router.attach("/DoctorConsultationByDate", DoctorConsultationByDate.class);//ta kolsatation tou giatrou se siggekrimeno ebros xronou
-
+        router.attach("/DoctorConsultationByDate", DoctorConsultationByDate.class);//ta kolsatation tou giatrou se siggekrimeno ebros xronou         // astheneis xoris consltation meta apo 30 meres(idio me tou giatrou)
+        router.attach("/InactivePatientResource", InactivePatientResource.class);//anenergoi se siggekrimeno xrono asthenois
+        router.attach("/InactiveDoctorResource", InactiveDoctorResource.class);//anenergoi se siggekrimeno xrono    giatroi
 
         return router;
     }
