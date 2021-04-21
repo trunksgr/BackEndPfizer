@@ -36,6 +36,7 @@ public class CustomRouter {
         //giatros
         router.attach("/PatientByDoctorResource", PatientByDoctorResource.class);//o giatros na briskei tous asthenis tou
         router.attach("/PatientWithNoCoResource", PatientWithNoCoResource.class);//astheneis xoris consltation meta apo 30 meres
+        router.attach("/PatientDoctorResource", PatientDoctorResource.class);//o giatros na briskei tous asthenis tou(MESO CONSULTATION)
 
 
         //asthenis

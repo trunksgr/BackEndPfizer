@@ -1,6 +1,7 @@
 package gr.codehub.pfizer.hibernate.repository;
 
 
+import gr.codehub.pfizer.hibernate.model.Consultation;
 import gr.codehub.pfizer.hibernate.model.Doctor;
 import gr.codehub.pfizer.hibernate.model.Patient;
 
@@ -67,6 +68,29 @@ public class DoctorRepository extends Repository<Doctor, Integer> {
                 .setParameter("to", to)
                 .getResultList();
     }
+
+
+
+
+
+
+    public List<Consultation> getDoctorPatient(Doctor doctor) {
+        return entityManager.createQuery("SELECT c FROM Doctor c WHERE c.Doctor=:doctor " +
+                        "AND c.Date>=:from1 AND c.Date<=:to",
+                Consultation.class)
+                .setParameter("doctor", doctor)
+                .getResultList();
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 }

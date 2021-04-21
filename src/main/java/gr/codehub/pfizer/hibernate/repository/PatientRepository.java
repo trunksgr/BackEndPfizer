@@ -64,6 +64,12 @@ public class PatientRepository extends Repository<Patient, Integer> {
     }
 
 
+
+
+
+
+
+
 //    AND not Patient.Id in (select distinct PatientsData.Patient_Id "+
 //            "from PatientsData where PatientsData.Date"+
 //            "between dateadd(day, -30, getdate())
@@ -93,7 +99,20 @@ public class PatientRepository extends Repository<Patient, Integer> {
                 .getResultList();
     }
 
+
+    public List<Patient> getPatientDoctor(int id) {
+        return entityManager.createNativeQuery("select Patient.* from Patient " +
+                        "where  Patient.Id in (select distinct Consultation.Patient_Id " +
+                        "from Consultation where Consultation.Doctor_Id=:id)",
+                Patient.class)
+                .setParameter("id", id)
+                .getResultList();
     }
+
+
+
+
+}
 
 
 
