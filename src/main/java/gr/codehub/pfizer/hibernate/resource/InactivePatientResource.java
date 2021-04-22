@@ -41,8 +41,8 @@ public class InactivePatientResource extends ServerResource {
                 }
             }
 
-            Date from1 = new SimpleDateFormat("dd-M-yyyy").parse(getQueryValue("from1"));
-            Date to = new SimpleDateFormat("dd-M-yyyy").parse(getQueryValue("to"));
+            Date from1 = new SimpleDateFormat("yyyy-M-d").parse(getQueryValue("from1"));
+            Date to = new SimpleDateFormat("yyyy-M-d").parse(getQueryValue("to"));
 
             EntityManager em = JpaUtil.getEntityManager();
             PatientRepository patientRepository = new PatientRepository(em);

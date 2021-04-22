@@ -59,7 +59,7 @@ public class DoctorRepository extends Repository<Doctor, Integer> {
 
     public List<Doctor> getInactiveDoctor(Date from1, Date to) {
         return entityManager.createNativeQuery("select Doctor.* from Doctor " +
-                        "where not Doctor.Id in (select distinct Consultation.Doctor_Id " +
+                        "where not Doctor.Id in (select  Consultation.Doctor_Id " +
                         "from Consultation where Consultation.Date " +
                         "between :from1 " +
                         "and :to )",

@@ -21,8 +21,8 @@ public class PatientDataGlucoseLvResource extends ServerResource {
 
 
 
-        Date from1a = new SimpleDateFormat("dd-M-yyyy").parse(getQueryValue("from1"));
-        Date toa = new SimpleDateFormat("dd-M-yyyy").parse(getQueryValue("to"));
+        Date from1a = new SimpleDateFormat("yyyy-M-dd").parse(getQueryValue("from1"));
+        Date toa = new SimpleDateFormat("yyyy-M-dd").parse(getQueryValue("to"));
 
         int patient_Id = Integer.parseInt(getQueryValue("patient_Id"));
 
