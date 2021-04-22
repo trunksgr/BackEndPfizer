@@ -18,16 +18,7 @@ public class PatientDataGlucoseLvResource extends ServerResource {
     @Get("json")
     public ApiResult<List<Double>> getPatientsData() throws ParseException {
 
-        try {
-            ResourceUtils.checkRole(this, Shield.ROLE_DOCTOR);
 
-        } catch (AuthorizationException e) {
-            try {
-                ResourceUtils.checkRole(this, Shield.ROLE_ADMIN);
-            } catch (AuthorizationException d) {
-                return new ApiResult<>(null, 500, e.getMessage());
-            }
-        }
 
 
         Date from1a = new SimpleDateFormat("dd-M-yyyy").parse(getQueryValue("from1"));
