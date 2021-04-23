@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 public class Chief {
-
+//the capitals in the fields was to accommodate the front ends needs
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;

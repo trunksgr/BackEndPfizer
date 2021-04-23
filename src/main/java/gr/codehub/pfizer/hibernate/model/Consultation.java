@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @NoArgsConstructor
 public class Consultation {
-
+    //the capitals in the fields was to accommodate the front ends needs
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;

@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 public class PatientsData {
-
+    //the capitals in the fields was to accommodate the front ends needs
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
